@@ -104,6 +104,8 @@ jobs:
         with:
           context: .
           file: ./Dockerfile_WebUI # On spécifie le Dockerfile de la UI
+          build-args: |
+            VUE_APP_API_URL=${{ secrets.VUE_APP_API_URL_PROD }}
           push: true
           #platforms: linux/amd64, linux/arm64
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/openas2-webui:${{ steps.upstream_release.outputs.tag }}, ${{ secrets.DOCKERHUB_USERNAME }}/openas2-webui:latest
